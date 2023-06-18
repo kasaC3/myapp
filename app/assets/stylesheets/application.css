@@ -44,3 +44,18 @@ ul>li　{
     width:400px;
     height:50px;
 }
+
+input[type="text"],textarea{
+    box-sizing: border-box;
+    width:400px;
+    padding:5px;
+}
+
+textarea{
+    height: 160px;
+}
+
+.error{
+    color:red;
+    font-weight: bold;
+}
