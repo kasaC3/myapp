@@ -72,3 +72,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+#Use Sass to process CSS
+gem "sassc-rails"
+
+gem 'bootstrap', '~> 5.2.0'
+gem 'http_accept_language'
