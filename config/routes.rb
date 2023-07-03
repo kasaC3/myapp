@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+    
+    #Define your application routes per
             resources :posts
-            #root 'posts#index'
-            
-            
-            resources :posts do
-                resources :comments
-            end
-            root 'posts#index'        
+    #Defines the root path oute("/")
+    #root "articles#index"
+    resources :posts do
+        resources :comments
+    end
+    root 'posts#index'        
 end
