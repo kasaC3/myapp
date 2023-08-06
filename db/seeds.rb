@@ -6,6 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-3.times do |i|
-    Post.find(1).comments.create(body: "comment body #{i}")
+5.times do |i|
+    Post.create(1).(title: "title #{i}",body:"body #{i}")
 end
