@@ -3,10 +3,10 @@
 </div>
 <div class="d-flex justify-content-between">
   <h2>My Posts</h2>
-  <% if session[:user_id]%>
-  <%=button_to t('add_new'),new_post_path,method: :get,class: 'btn btn-sm btn-primary'%>
+  <% if current_user %>
+    <%=button_to t('add_new'),new_post_path,method: :get,class: 'btn btn-sm btn-primary'%>
   <%end%>
-</div>  
+</div>
 <ul class="list-group mt-2">
   <% @posts.each do|post| %>
     <li class="list-group-item d-flex justify-content-between">
@@ -20,14 +20,16 @@
           <%= l(post.created_at, format: :long) %>
         </span>
       </div>
-      <div class="dropdown">
-        <button class="btn btn-sm btn-link dropdown-toggle p-0" data-bs-toggle="dropdown">
-        </button>
-        <div class="dropdown-menu">
-          <%= link_to t('.edit'), edit_post_path(post),class: 'dropdown-item' %>
-          <%= button_to t('.delete'), post_path(post),method: :delete,class:'dropdown-item' %>
+      <%if (current_user) && (current_user.id == post.user_id) %>
+        <div class="dropdown">
+          <button class="btn btn-sm btn-link dropdown-toggle p-0" data-bs-toggle="dropdown">
+          </button>
+            <div class="dropdown-menu">
+              <%= link_to t('.edit'), edit_post_path(post),class: 'dropdown-item' %>
+              <%= button_to t('.delete'), post_path(post),method: :delete,class:'dropdown-item' %>
+            </div>
         </div>
-      </div>
+      <%end%>
     </li>
   <% end %>
 </ul>
